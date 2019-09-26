@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ipartek.formacion.rest.musiconcloud.domain.Cancion;
+import com.ipartek.formacion.rest.musiconcloud.domain.Categoria;
 import com.ipartek.formacion.rest.musiconcloud.domain.ReponseMensaje;
 import com.ipartek.formacion.rest.musiconcloud.model.CancionesRepository;
+import com.ipartek.formacion.rest.musiconcloud.model.CategoriaRepository;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -40,7 +42,8 @@ public class CancionesController {
 		ResponseEntity<Object> result = null;
 		ArrayList<Cancion> lista = null;
 		try {
-
+						
+			
 			if (nombre != null && !"".equals(nombre)) {
 				lista = (ArrayList<Cancion>) cancionesRepository.findByNombreContaining(nombre);
 			} else {
